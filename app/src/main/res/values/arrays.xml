@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="country">
+        <item>Elige una opción</item>
+        <item>Argentina</item>
+        <item>Estados Unidos de América</item>
+        <item>México</item>
+    </string-array>
+</resources>

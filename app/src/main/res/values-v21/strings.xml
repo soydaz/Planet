@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Planet</string>
+    <string name="detail">Detalle</string>
+    <string name="sorry_planet_invalid">Lo sentimos el planeta no tiene un identificador válido</string>
+    <string name="name">Nombre</string>
+    <string name="diameter">Diámetro</string>
+    <string name="type_terrain">Tipo de terreno</string>
+</resources>

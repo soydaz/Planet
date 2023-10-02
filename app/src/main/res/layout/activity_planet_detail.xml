@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:keepScreenOn="true"
+    tools:context=".modules.detail.ui.PlanetDetailActivity">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.planet.modules.detail.data.response.DetailPlanetResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_gray">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_collapseMode="pin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:popupTheme="@style/Theme.TPFFM.PopupOverlay" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/subtitle"
+            android:text="@string/detail"
+            android:textSize="@dimen/_18sp"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/toolbar" />
+
+        <ImageView
+            android:id="@+id/icon_car"
+            android:layout_width="@dimen/_120dp"
+            android:layout_height="@dimen/_120dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_observatory"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:ignore="ImageContrastCheck" />
+
+        <ImageView
+            android:id="@+id/icon_alien"
+            android:layout_width="@dimen/_56dp"
+            android:layout_height="@dimen/_56dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/icon_alien"
+            app:layout_constraintBottom_toTopOf="@id/cardView"
+            app:layout_constraintEnd_toEndOf="@id/cardView"
+            app:layout_constraintHorizontal_bias="0.93"
+            app:layout_constraintStart_toStartOf="@id/cardView"
+            tools:ignore="ImageContrastCheck" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_20dp"
+            app:cardCornerRadius="@dimen/_8dp"
+            app:cardElevation="@dimen/_4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintWidth_percent="0.9">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="@dimen/_0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_percent="0.9">
+
+                    <TextView
+                        android:id="@+id/ui_name_planet"
+                        style="@style/commonText18"
+                        android:layout_marginTop="@dimen/_20sp"
+                        android:text="@string/name"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/ui_name_input"
+                        style="@style/commonFieldRounded"
+                        setName="@{item}"
+                        android:autofillHints=""
+                        android:gravity="top"
+                        android:lines="4"
+                        android:padding="@dimen/_10dp"
+                        android:singleLine="false"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ui_name_planet" />
+
+                    <TextView
+                        android:id="@+id/ui_diameter_planet"
+                        style="@style/commonText18"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:text="@string/diameter"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ui_name_input" />
+
+                    <TextView
+                        android:id="@+id/ui_diameter_input"
+                        style="@style/commonFieldRounded"
+                        setDiameter="@{item}"
+                        android:autofillHints=""
+                        android:gravity="top"
+                        android:lines="4"
+                        android:padding="@dimen/_10dp"
+                        android:singleLine="false"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ui_diameter_planet" />
+
+                    <TextView
+                        android:id="@+id/ui_terrain_planet"
+                        style="@style/commonText18"
+                        android:layout_marginTop="@dimen/_20dp"
+                        android:text="@string/type_terrain"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ui_diameter_input" />
+
+                    <TextView
+                        android:id="@+id/ui_type_terrain_input"
+                        style="@style/commonFieldRounded"
+                        setTerrain="@{item}"
+                        android:autofillHints=""
+                        android:gravity="top"
+                        android:lines="4"
+                        android:padding="@dimen/_10dp"
+                        android:singleLine="false"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ui_terrain_planet" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

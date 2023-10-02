@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Planet</string>
+    <string name="detail">Detalle</string>
+    <string name="sorry_planet_invalid">Lo sentimos el planeta no tiene un identificador válido</string>
+    <string name="name">Nombre</string>
+    <string name="diameter">Diámetro</string>
+    <string name="type_terrain">Tipo de terreno</string>
+    <string name="register_user">Registrar usuario</string>
+    <string name="last_name">Apellido Paterno</string>
+    <string name="mother_last_name">Apellido Materno</string>
+    <string name="empty_fields">Existen campos vacíos</string>
+    <string name="country">Pais</string>
+    <string name="birthday">Fecha de nacimiento</string>
+    <string name="birthday_format">DD/MM/YYYY</string>
+    <string name="error_field_name_empty">Debe ingresar su nombre</string>
+    <string name="error_field_last_name_empty">Debe ingresar su apellido paterno</string>
+    <string name="error_field_mother_last_name_empty">Debe ingresar su apellido materno</string>
+    <string name="error_field_contry_empty">Debe seleccionar un pais</string>
+    <string name="error_field_birthday_empty">Debe seleccionar su fecha de nacimiento</string>
+    <string name="error_field_name_too_long">El nombre de usuario es demasiado largo</string>
+    <string name="error_field_last_too_long">El apellido paterno es demasiado largo</string>
+    <string name="error_field_mother_last_name_too_long">El apellido materno es demasiado largo</string>
 </resources>
