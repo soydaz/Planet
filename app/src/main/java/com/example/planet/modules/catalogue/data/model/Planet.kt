@@ -12,6 +12,7 @@ class Planet(
     var url: String? = ""
 ) : WSBaseResponseInterface, Serializable {
     var id: Int = 0
+    var image: String = ""
 
     fun getPlanetId(): String {
         var result = ""

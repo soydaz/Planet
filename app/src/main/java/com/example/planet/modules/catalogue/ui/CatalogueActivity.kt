@@ -33,7 +33,7 @@ class CatalogueActivity : BaseActivity(), CatalogueContract.ViewInterface {
         super.onCreate(savedInstanceState)
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_catalogue)
         mPresenter = CataloguePresenter(this, CatalogueDataSource())
-        mAdapter = CatalogueAdapter(CatalogueAdapter.EventListener { item ->
+        mAdapter = CatalogueAdapter(this, CatalogueAdapter.EventListener { item ->
             val id = item.getPlanetId()
             if (id.isEmpty())
                 notifyError(getString(R.string.sorry_planet_invalid))

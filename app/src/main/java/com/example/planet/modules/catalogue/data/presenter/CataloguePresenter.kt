@@ -20,6 +20,12 @@ class CataloguePresenter(private var mViewInterface: CatalogueContract.ViewInter
 
     private val mScope = CoroutineScope(Dispatchers.Main)
 
+    private val mPlanetsImageUrl = arrayListOf(
+        "https://images.pexels.com/photos/39561/solar-flare-sun-eruption-energy-39561.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/5476413/pexels-photo-5476413.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/5304000/pexels-photo-5304000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")
+
     override fun getPlanetsList() {
         mViewInterface.progressMessage("Consultando planetas")
         mScope.launch {
@@ -27,11 +33,15 @@ class CataloguePresenter(private var mViewInterface: CatalogueContract.ViewInter
                 when (this) {
                     is Result.Request -> {}
                     is Result.Success -> {
-                        this.data.resultsList?.let { list ->
+                        val planetsList = this.data.resultsList ?: arrayListOf()
+                        for (planet in planetsList) {
+                            planet.image = mPlanetsImageUrl.random()
+                        }
+                        planetsList.let { list ->
                             if (list.isNotEmpty())
                                 mViewInterface.notifyPlanets(list)
                             else
-                                mViewInterface.notifyError("No hay datos")
+                                mViewInterface.notifyError("No hay datos sobre planetas")
                         }
                     }
                     is Result.Error -> {

@@ -49,7 +49,6 @@
                         android:id="@+id/item_app_icon"
                         android:layout_width="@dimen/_36dp"
                         android:layout_height="@dimen/_36dp"
-                        android:background="@drawable/icon_insights"
                         android:contentDescription="@string/app_name"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHeight_percent="0.7"
