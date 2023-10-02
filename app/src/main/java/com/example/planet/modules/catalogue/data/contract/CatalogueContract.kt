@@ -11,6 +11,7 @@ class CatalogueContract {
 
     interface ViewInterface {
         fun notifyPlanets(planetsList: ArrayList<Planet>)
+        fun progressMessage(message: String?)
         fun notifyError(message: String)
     }
 

@@ -57,4 +57,7 @@
     <dimen name="_58sp">58sp</dimen>
     <dimen name="_156dp">156dp</dimen>
     <dimen name="text_size_20sp">20sp</dimen>
+    <dimen name="_100dp">100dp</dimen>
+    <dimen name="_1dp">1dp</dimen>
+    <dimen name="_50dp">50dp</dimen>
 </resources>

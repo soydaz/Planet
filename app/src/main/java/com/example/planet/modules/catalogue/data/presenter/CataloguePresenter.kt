@@ -21,6 +21,7 @@ class CataloguePresenter(private var mViewInterface: CatalogueContract.ViewInter
     private val mScope = CoroutineScope(Dispatchers.Main)
 
     override fun getPlanetsList() {
+        mViewInterface.progressMessage("Consultando planetas")
         mScope.launch {
             mDataSource.getPlanets().apply {
                 when (this) {
@@ -37,6 +38,7 @@ class CataloguePresenter(private var mViewInterface: CatalogueContract.ViewInter
                         mViewInterface.notifyError(this.exception.message ?: "Error")
                     }
                 }
+                mViewInterface.progressMessage(null)
             }
         }
     }

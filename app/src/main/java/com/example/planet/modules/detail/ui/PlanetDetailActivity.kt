@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.planet.R
 import com.example.planet.core.arch.BaseActivity
 import com.example.planet.core.common.Keys
+import com.example.planet.core.message.MessageUtils
 import com.example.planet.databinding.ActivityPlanetDetailBinding
 import com.example.planet.modules.detail.data.contract.DetailContract
 import com.example.planet.modules.detail.data.datasource.DetailDataSource
@@ -51,6 +52,13 @@ class PlanetDetailActivity : BaseActivity(), DetailContract.ViewInterface {
     override fun detailPlanet(planet: DetailPlanetResponse) {
         mBinding.item = planet
         mBinding.executePendingBindings()
+    }
+
+    override fun progressMessage(message: String?) {
+        if (!message.isNullOrEmpty())
+            MessageUtils.progress(this, message)
+        else
+            MessageUtils.stopProgress()
     }
 
     override fun notifyError(message: String) {

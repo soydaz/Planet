@@ -14,6 +14,7 @@ class DetailPresenter(private var mViewInterface: DetailContract.ViewInterface, 
     private val mScope = CoroutineScope(Dispatchers.Main)
 
     override fun getDetailPlanetById(id: String) {
+        mViewInterface.progressMessage("Consultando el detalle")
         mScope.launch {
             val request = DetailPlanetRequest(id.toInt())
             mDataSource.getDetail(request).apply {
@@ -26,6 +27,7 @@ class DetailPresenter(private var mViewInterface: DetailContract.ViewInterface, 
                         mViewInterface.notifyError(this.exception.message ?: "Error")
                     }
                 }
+                mViewInterface.progressMessage(null)
             }
         }
     }

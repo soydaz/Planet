@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.planet.R
 import com.example.planet.core.arch.BaseActivity
+import com.example.planet.core.message.MessageUtils
 import com.example.planet.core.storage.local.room.entitys.User
 import com.example.planet.databinding.ActivityRegisterUserBinding
 import com.example.planet.modules.catalogue.ui.CatalogueActivity
@@ -71,6 +72,13 @@ class RegisterUserActivity : BaseActivity(), RegisterUserContract.ViewInterface,
     override fun registeredUserSuccess() {
         this@RegisterUserActivity.finish()
         CatalogueActivity.launch(this)
+    }
+
+    override fun progressMessage(message: String?) {
+        if (!message.isNullOrEmpty())
+            MessageUtils.progress(this, message)
+        else
+            MessageUtils.stopProgress()
     }
 
     override fun notifyError(message: String) {

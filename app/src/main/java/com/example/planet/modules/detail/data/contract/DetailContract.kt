@@ -11,6 +11,7 @@ class DetailContract {
 
     interface ViewInterface {
         fun detailPlanet(planet: DetailPlanetResponse)
+        fun progressMessage(message: String?)
         fun notifyError(message: String)
     }
 

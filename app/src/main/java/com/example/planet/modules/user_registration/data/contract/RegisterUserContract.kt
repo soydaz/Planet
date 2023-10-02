@@ -12,6 +12,7 @@ class RegisterUserContract {
 
     interface ViewInterface {
         fun registeredUserSuccess()
+        fun progressMessage(message: String?)
         fun notifyError(message: String)
     }
 

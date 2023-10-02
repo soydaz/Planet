@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.planet.R
 import com.example.planet.core.arch.BaseActivity
+import com.example.planet.core.message.MessageUtils
 import com.example.planet.databinding.ActivityCatalogueBinding
 import com.example.planet.modules.catalogue.data.contract.CatalogueContract
 import com.example.planet.modules.catalogue.data.datasource.CatalogueDataSource
@@ -54,6 +55,13 @@ class CatalogueActivity : BaseActivity(), CatalogueContract.ViewInterface {
 
     override fun notifyPlanets(planetsList: ArrayList<Planet>) {
         mAdapter.submitList(planetsList)
+    }
+
+    override fun progressMessage(message: String?) {
+        if (!message.isNullOrEmpty())
+            MessageUtils.progress(this, message)
+        else
+            MessageUtils.stopProgress()
     }
 
     override fun notifyError(message: String) {
